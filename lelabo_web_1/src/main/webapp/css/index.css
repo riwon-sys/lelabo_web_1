@@ -1,0 +1,28 @@
+/* header logo */
+.header_logo {
+    width: 60px;
+}
+
+/* 눈누 폰트 */
+@font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 전체 폰트 적용 (백업 폰트 추가) */
+* {
+    font-family: 'GowunBatang-Regular', serif;
+}
+
+/* 헤더 멤버 프로필 */
+.header_profile {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%; /* 원형 프로필 */
+    padding: 2px; /* 안쪽 여백 */
+    border: 1px solid #e8e8e8; /* 테두리 */
+    object-fit: cover; /* 비율 유지, 사이즈 잘림 */
+}
+

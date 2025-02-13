@@ -1,0 +1,55 @@
+서블릿과제4 (식당) 대기번호 발행 프로그램3
+   * 강사 git주소의 day03/task3 참고합니다.
+   조건1 : day03패키지의 task4 패키지에서 클래스 파일은 WaitingController, WaitingDao , WaitingDto 3개의 클래스만 생성 합니다.
+   조건2 : 'WaitingController' 생성하여 HttpServlet 으로 부터 상속 받으시오.
+   조건3 : 'WaitingController' 매핑 주소는 '/day03/waiting2' 으로 정의하시오.
+   조건4 : [대기번호등록]'WaitingController' 클래스의 doPost() 재정의 하기.
+   조건5 : [대기전체조회]'WaitingController' 클래스의 doGet() 재정의 하기.
+   조건6 : [대기개별수정]'WaitingController' 클래스의 doUpdate() 재정의 하기.
+   조건7 : [대기개별삭제]'WaitingController' 클래스의 doDelete() 재정의 하기.
+      - 요청데이터는 post 와 put 매핑은 body 로 , get 와 delete 매핑은 queryString 사용합니다. 
+      - 응답은 모두 applicartion/json 타입으로 응답 합니다.
+      
+   조건6 : 데이터베이스 생성과 테이블 생성은 임의로 하시오.
+   
+   [제출] 카카오톡방에 URL 과 body 를 제출한다.
+      예] 
+      http://192.168.40.25:8080/tj2024b_web1/day03/visit2
+      { "content" : "안녕! 방문록 남기고 갑니다." , "age" : "40"  }
+
+  입력 받기 전 구상 1   
+   // 1. 대기번호 개별 등록 : post / body / {"content" : "안뇽" , "age" : 30}
+     // 1-2. application/json / true
+	   // 1-3. url : http://localhost:8080/lelabo_web_1/day3/visit2
+		   
+		   
+     // 2. 대기번호 전체 조회 : get / 없어요
+	  // 2-2. application/json / {"num" : 1 , "content" : "안뇽1" , "age" :30} , {"num" : 2 , "content" : "안뇽2" , "age" :35}
+	    // 2-3. url : http://localhost:8080/lelabo_web_1/day3/visit2
+	
+
+	  // 3. 대기번호 개별 수정 : put / body /  {"num" : 3 , "content" : "수정안뇽" , "age" : 40}
+	   // 3-2. application/json /true
+	    // 3-3. url : http://localhost:8080/lelabo_web_1/day3/visit2
+	    
+	   // 4. 대기번호 개별 삭제 : delete / querystring / {?bnum=1}
+	    // 4-2. application/json /true
+	      // 4-3. url : http://localhost:8080/lelabo_web_1/day3/visit2?num=1
+	      
+   입력 받기 전 구상 2
+   // 1. 방문록 등록 		: POST		, url : http://localhost:8080/tj2024b_web1/day03/visit2	
+	// 매개변수 : BODY					, 매개변수 예] { "content":"안녕" , "age" : 30 }
+	// 반환타입 : application/json 	, 매개변수 예] true/false
+	
+	
+	// 2. 방문록 전체조회 	: GET		, url : http://localhost:8080/tj2024b_web1/day03/visit2	
+	// 매개변수 : X
+	// 반환타입 : application/json		, 매개변수 예] [ { "num" : 1 , "content":"안녕1" , "age" : 30 } , { "num" : 2 , "content":"안녕2" , "age" : 20 }  ]
+	
+	// 3. 방문록 수정 		: PUT 		, url : http://localhost:8080/tj2024b_web1/day03/visit2	
+	// 매개변수 : BODY 				, 매개변수 예] { "num" : 3 , "content":"수정안녕" , "age" : 40 }
+	// 반환타입 : application/json		, 매개변수 예] true
+	
+	// 4. 방문록 삭제 		: DELETE 	, url : http://localhost:8080/tj2024b_web1/day03/visit2?num=1
+	// 매개변수 : queryString 			, 매개변수 예 ] ?num=1
+	// 반환타입 : application/json		, 매개변수 예] true
